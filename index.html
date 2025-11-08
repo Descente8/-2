@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Лендинг на Bootstrap 5 — Практическая работа</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Optional: Bootstrap Icons (для иконок) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom minimal styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER / NAVBAR -->
+<header>
+  <!-- navbar-expand-md : будет сворачиваться (бургер) при ширине < 768px -->
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- текстовый логотип -->
+        <span class="fs-4 fw-bold me-2">MyWebsite</span>
+        <small class="text-muted">fast</small>
+      </a>
+
+      <!---toggler (burger menu)-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Навигация -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="#sec1">Начало</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sec2">Лендинг</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sec3">Контакты</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sec4">Заявка</a></li>
+          <li class="nav-item ms-2">
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Связаться</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO / SECTION 1 -->
+<section id="sec1" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center gx-5">
+      <div class="col-12 col-md-6 order-2 order-md-1">
+        <h1 class="display-5 fw-bold">Создание сайтов на заказ</h1>
+        <p class="lead text-muted">Адаптивная верстка, компоненты Bootstrap и минимальный кастомный CSS.
+           Демонстрация: слайдер, форма с валидацией, модал, табы и аккордеон.</p>
+        <div class="d-grid gap-2 d-sm-flex">
+          <a href="#sec2" class="btn btn-primary btn-lg me-sm-2">Узнать больше</a>
+          <button class="btn btn-outline-secondary btn-lg" data-bs-toggle="offcanvas" data-bs-target="#offCanvas"
+                  aria-controls="offCanvas">Меню</button>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+        <!-- Carousel (слайдер) -->
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-3 shadow-sm">
+            <div class="carousel-item active">
+              <img src="https://i.pinimg.com/originals/47/15/6a/47156ad5cd4f08a4d95360a06bc381cf.jpg" class="d-block w-100 img-fluid" alt="slide1">
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/736x/9f/8e/fe/9f8efed18989c39e16937a8e40013b46.jpg" class="d-block w-100 img-fluid" alt="slide2">
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/736x/33/5d/88/335d88526c67cd9989f0441c1a370f16.jpg" class="d-block w-100 img-fluid" alt="slide3">
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CARDS + TABS -->
+<section id="sec2" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Landig Page</h2>
+
+    <div class="row gx-4">
+      <div class="col-12 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="https://static.tildacdn.com/tild3233-3365-4132-b437-386362336464/image.png" class="card-img-top img-fluid" alt="service">
+          <div class="card-body">
+            <h5 class="card-title">Landig Page</h5>
+            <p class="card-text text-muted">Идеально для:
+                стартапов, акций, мероприятий, персональных страниц.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceModal">Подробнее</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-8">
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-3" id="infoTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#pane-1" type="button" role="tab" aria-controls="pane-1" aria-selected="true">Описание</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#pane-2" type="button" role="tab" aria-controls="pane-2" aria-selected="false">Цены</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#pane-3" type="button" role="tab" aria-controls="pane-3" aria-selected="false">Отзывы</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="pane-1" role="tabpanel" aria-labelledby="tab-1">
+            <p class="lead"><p>- Разработка прототипа и дизайна в Tilda</p>
+                <p>- Настройка всех блоков и форм</p>
+                <p>- Подключение домена и хостинга</p>
+                <p>- Базовая SEO-оптимизация (мета-теги, заголовки)</p>
+                <p>- Интеграция с Яндекс.Метрикой и Google Analytics</p>
+                <p>- 1 месяц технической поддержки</p>
+          </div>
+          <div class="tab-pane fade" id="pane-2" role="tabpanel" aria-labelledby="tab-2">
+            <div class="row">
+              <div class="col-6 col-sm-4 mb-3">
+                <div class="p-3 border rounded">Базовый<br><span class="fw-bold">5 000 ₽</span></div>
+              </div>
+              <div class="col-6 col-sm-4 mb-3">
+                <div class="p-3 border rounded">Стандарт<br><span class="fw-bold">10 000 ₽</span></div>
+              </div>
+              <div class="col-6 col-sm-4 mb-3">
+                <div class="p-3 border rounded">Премиум<br><span class="fw-bold">20 000 ₽</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pane-3" role="tabpanel" aria-labelledby="tab-3">
+            <p>В работе кленты больше всего омечают 3 вещи:
+                <p>1. Скорость обратной связи - оперативно отвечает на все вопросы по продвижению сайта.</p>
+                <p>2. Не пускает пыль в глаза и не дает обещаний, которых не может выполнить.</p>
+                <p>3. Результаты работы. По ключевым запросам наш сайт прочно обосновался в топе и благодаря этому теперь к нам приходят хорошие платежеспособные клиенты. </p>
+                <p>★★★★★</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: FORM + ACCORDION -->
+<section id="sec3" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4"><p>Хотите, чтобы ваш бизнес начал работать эффективнее?</p>
+        <p>Мы подберем оптимальное решение и воплотим его в жизнь.</p></h2>
+    <div class="row gx-4">
+      <div class="col-12 col-lg-6 mb-4">
+        <!-- Form with validation (Bootstrap) -->
+        <form class="needs-validation bg-white p-4 rounded shadow-sm" novalidate id="contactForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="invalid-feedback">Пожалуйста, укажите имя.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">Введите корректный Email.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Сообщение</label>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
+            <div class="invalid-feedback">Введите сообщение.</div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between">
+            <button class="btn btn-primary" type="submit">Отправить</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-6 mb-4">
+        <!-- Accordion -->
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Сколько времени занимает создание сайта?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Сроки зависят от сложности проекта. Лендинг на Tilda мы делаем за 7-10 дней, корпоративный 
+                сайт — за 2-3 недели, а интернет-магазин с индивидуальной разработкой — от 1 до 3 месяцев. Мы всегда согласовываем с вами 
+                точные сроки на этапе обсуждения проекта и строго их соблюдаем</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Вы предоставляете гарантии на сайт?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Да, мы предоставляем гарантию на все работы. На сайты на Tilda мы даем 1 месяц бесплатной поддержки, на кастомные проекты — 3 месяца. 
+                В течение этого срока мы бесплатно исправляем любые ошибки, которые возникли по нашей вине, помогаем с доработками и консультируем по всем вопросам.
+                 Наша цель — чтобы вы были довольны результатом.Да, мы предоставляем гарантию на все работы. На сайты на Tilda мы даем 1 месяц бесплатной поддержки, 
+                 на кастомные проекты — 3 месяца. В течение этого срока мы бесплатно исправляем любые ошибки, которые возникли по нашей вине, помогаем с доработками и консультируем по всем вопросам. 
+                 Наша цель — чтобы вы были довольны результатом</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Что входит в стоимость разработки?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">В стоимость входит полный цик работ: анализ вашего бизнеса и целевой аудитории, создание прототипа 
+                и дизайна, верстка и программирование, наполнение контентом, базовая SEO-оптимизация и запуск. Мы работаем по прозрачной схеме 
+                с поэтапной оплатой — вы видите, за что платите, и можете вносить корректировки в процессе работы. Все дополнительные опции 
+                (например, сложные интеграции или эксклюзивный дизайн) обсуждаются отдельно и включаются в стоимость только с вашего согласия.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FEATURES GRID + CTA -->
+<section id="sec4" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Кому подойдет наша разработка?</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <h5 class="fw-bold">Стартапам</h5>
+          <p class="text-muted mb-0">быстрый запуск MVP на Tilda с последующим масштабированием</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <h5 class="fw-bold">Малому бизнесу</h5>
+          <p class="text-muted mb-0">эффективные лендинги и корпоративные сайты под ключ</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <h5 class="fw-bold">Интернет-магазинам</h5>
+          <p class="text-muted mb-0">мощные платформы с интеграцией 1С и платежных систем</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <h5 class="fw-bold">Корпорациям</h5>
+          <p class="text-muted mb-0">сложные порталы с API-подключениями и админ-панелями</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <button class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#contactModal">Оставить заявку</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="mb-3 mb-md-0">
+      <small>© <span id="year"></span> MyWebsite. Все права защищены.</small>
+    </div>
+    <div>
+      <a href="#sec1" class="text-white text-decoration-none me-3">Наверх</a>
+      <a href="#" class="text-white text-decoration-none me-3">Политика конфиденциальности</a>
+      <a href="#" class="text-white text-decoration-none">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL (contact) -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Связаться с нами</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <p>Оставьте заявку — мы свяжемся в рабочее время.</p>
+        <form id="modalForm" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="modalName" class="form-label">Имя</label>
+            <input type="text" id="modalName" class="form-control" required>
+            <div class="invalid-feedback">Введите имя</div>
+          </div>
+          <div class="mb-3">
+            <label for="modalPhone" class="form-label">Телефон</label>
+            <input type="tel" id="modalPhone" class="form-control" required>
+            <div class="invalid-feedback">Введите телефон</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL (service details) -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="serviceLabel">Подробнее об услуге</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <p>- Разработка прототипа и дизайна в Tilda</p>
+        <p>- Настройка всех блоков и форм</p>
+        <p>- Подключение домена и хостинга</p>
+        <p>- Базовая SEO-оптимизация (мета-теги, заголовки)</p>
+        <p>- Интеграция с Яндекс.Метрикой и Google Analytics</p>
+        <p>- 1 месяц технической поддержки</p>
+        <img src="https://picsum.photos/1000/500?random=5" class="img-fluid rounded" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFCANVAS (additional component) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offCanvas" aria-labelledby="offCanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offCanvasLabel">Меню</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      <li><a href="#sec1" class="d-block py-2">Начало</a></li>
+      <li><a href="#sec2" class="d-block py-2">Лендинг</a></li>
+      <li><a href="#sec3" class="d-block py-2">Контакты</a></li>
+      <li><a href="#sec4" class="d-block py-2">Заявка</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- TOAST (additional) -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+  <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Это тестовый toast — сообщение успешно отправлено!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS & Popper (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
